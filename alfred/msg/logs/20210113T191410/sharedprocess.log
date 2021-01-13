@@ -1,0 +1,3 @@
+[2021-01-13 19:14:15.959] [sharedprocess] [info] main {"machineId":"f6496a0aae68fa568d450e5746c025867a7f1dedcecae7113ffda165fda73754","windowId":2}
+[2021-01-13 19:14:16.105] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/root/tryhackme/alfred/msg/User/snippets'
+[2021-01-13 19:14:55.978] [sharedprocess] [info] Starting to clean up unused language packs.
