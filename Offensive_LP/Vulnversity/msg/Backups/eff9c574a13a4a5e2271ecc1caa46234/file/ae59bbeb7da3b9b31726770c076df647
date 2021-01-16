@@ -1,0 +1,29 @@
+file:///root/tryhackme/Offensive_LP/Vulnversity/note {"mtime":1610823516362,"ctime":1610823516362,"size":44,"etag":"36b219gj71d","orphaned":false}
+NMAP - Network Mapping
+{{
+	open ports - 6
+	21 - ftp
+	22 - ssh
+	139 - netbios-ssn
+	145 - " " "
+	3128 - http-proxy - Squid http proxy 3.5.12
+	3333 - http server - Apache httpd 2.4.18 ((Ubuntu))
+
+
+	**OS Detected** -- UBUNTU
+
+}}
+
+gobuster
+{{
+	found directories:
+	images - nan
+	index - nan
+	css - nan
+	js - nan
+	fonts - nan
+	internal - **Found Upload functionality**
+}}
+
+
+	

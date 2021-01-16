@@ -1,0 +1,20 @@
+# Nmap 7.91 scan initiated Sun Jan 17 00:15:18 2021 as: nmap -sV -oN NMAP.nmap -vv -p- 10.10.117.227
+Increasing send delay for 10.10.117.227 from 0 to 5 due to 516 out of 1718 dropped probes since last increase.
+Increasing send delay for 10.10.117.227 from 5 to 10 due to 2320 out of 7731 dropped probes since last increase.
+Nmap scan report for 10.10.117.227
+Host is up, received echo-reply ttl 63 (0.20s latency).
+Scanned at 2021-01-17 00:15:19 IST for 2930s
+Not shown: 65529 closed ports
+Reason: 65529 resets
+PORT     STATE SERVICE     REASON         VERSION
+21/tcp   open  ftp         syn-ack ttl 63 vsftpd 3.0.3
+22/tcp   open  ssh         syn-ack ttl 63 OpenSSH 7.2p2 Ubuntu 4ubuntu2.7 (Ubuntu Linux; protocol 2.0)
+139/tcp  open  netbios-ssn syn-ack ttl 63 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn syn-ack ttl 63 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+3128/tcp open  http-proxy  syn-ack ttl 63 Squid http proxy 3.5.12
+3333/tcp open  http        syn-ack ttl 63 Apache httpd 2.4.18 ((Ubuntu))
+Service Info: Host: VULNUNIVERSITY; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jan 17 01:04:09 2021 -- 1 IP address (1 host up) scanned in 2930.81 seconds
