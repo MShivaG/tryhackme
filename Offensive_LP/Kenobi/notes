@@ -1,0 +1,11 @@
+[+]
+Recon - NMAP
+{{
+	7 ports open
+	found SAMBA running on 445
+}}
+
+[+]
+Enumeration - NMAP NSE
+{{
+	
