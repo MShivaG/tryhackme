@@ -1,0 +1,8 @@
+[+]
+Recon - NMAP
+{{
+	Two ports running web server - 80,8080
+	8080 - httpd 2.3 >> Rejetto HTTP File Server (HFS)
+	Found 4 exploits from searchsploit [searchsploit Rejetto 2.3]
+}}
+
