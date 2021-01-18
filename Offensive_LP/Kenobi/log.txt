@@ -1,0 +1,9 @@
+Cleaning stale pidfile '/root/.vnc/kali:1.pid'!
+
+New 'kali:1 (root)' desktop at :1 on machine kali
+
+Starting applications specified in /root/.vnc/xstartup
+Log file is /root/.vnc/kali:1.log
+
+Use xtigervncviewer -SecurityTypes VncAuth -passwd /root/.vnc/passwd :1 to connect to the VNC server.
+
