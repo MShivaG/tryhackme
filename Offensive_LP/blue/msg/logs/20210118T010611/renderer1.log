@@ -1,0 +1,1 @@
+[2021-01-18 01:06:18.680] [renderer1] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/root/tryhackme/Offensive_LP/blue/.vscode'

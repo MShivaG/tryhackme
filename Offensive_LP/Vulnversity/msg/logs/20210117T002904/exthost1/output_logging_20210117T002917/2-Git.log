@@ -409,3 +409,16 @@ Open repository: /root/tryhackme
 > git config --get commit.template
 > git show --textconv :Offensive_LP/Vulnversity/note
 > git ls-files --stage -- /root/tryhackme/Offensive_LP/Vulnversity/note
+> git status -z -u
+> git ls-files --stage -- /root/tryhackme/Offensive_LP/Vulnversity/note
+> git symbolic-ref --short HEAD
+> git cat-file -s 2f12fd835089d305ab4d5a323c76b7313efc71ff
+> git rev-parse main
+> git rev-parse --symbolic-full-name main@{u}
+> git show --textconv :Offensive_LP/Vulnversity/note
+> git rev-list --left-right main...refs/remotes/origin/main
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname)
+> git remote --verbose
+> git config --get commit.template
+> git status -z -u
+> git symbolic-ref --short HEAD

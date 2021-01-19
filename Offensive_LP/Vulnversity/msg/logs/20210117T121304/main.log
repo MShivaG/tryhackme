@@ -1,0 +1,6 @@
+[2021-01-17 12:13:05.356] [main] [info] update#setState idle
+[2021-01-17 12:13:35.359] [main] [info] update#setState checking for updates
+[2021-01-17 12:16:22.765] [main] [error] Error: net::ERR_TIMED_OUT
+    at SimpleURLLoaderWrapper.<anonymous> (electron/js2c/browser_init.js:105:6395)
+    at SimpleURLLoaderWrapper.emit (events.js:223:5)
+[2021-01-17 12:16:22.765] [main] [info] update#setState idle
