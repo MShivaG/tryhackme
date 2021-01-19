@@ -1,1 +1,0 @@
-[2021-01-17 12:13:16.127] [renderer1] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/root/tryhackme/Offensive_LP/Vulnversity/.vscode'

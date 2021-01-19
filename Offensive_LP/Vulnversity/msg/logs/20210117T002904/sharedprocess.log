@@ -1,3 +1,0 @@
-[2021-01-17 00:29:10.014] [sharedprocess] [info] main {"machineId":"f6496a0aae68fa568d450e5746c025867a7f1dedcecae7113ffda165fda73754","windowId":2}
-[2021-01-17 00:29:10.405] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/root/tryhackme/Offensive_LP/Vulnversity/msg/User/snippets'
-[2021-01-17 00:29:50.046] [sharedprocess] [info] Starting to clean up unused language packs.
