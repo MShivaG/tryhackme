@@ -1,0 +1,15 @@
+***Local File Inclusion (LFI)***
+[+]
+A parameter in the url that allows access to the files in the server....
+Eg: http://IP/file=index.html
+Intresting Files to check ==> https://github.com/cyberheartmi9/PayloadsAllTheThings/tree/master/File%20Inclusion%20-%20Path%20Traversal#basic-lfi-null-byte-double-encoding-and-other-tricks
+
+
+Download ssh key .ssh/id_rsa
+ssh login as falcon
+get user flag
+escalate privilege using /bin/journalctl
+while the cmd is running type !/bin/sh ==> got the shell
+get the root flag.
+
+***END***

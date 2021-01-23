@@ -1,0 +1,16 @@
+[+]
+Proxy - Funnel traffic through Burp Suite
+{{
+    
+}}
+[+]
+Target - Site mapping and scope of our Target
+[+]
+Intruder Tab 
+{{
+    Enumerate 
+}}
+[+]
+Repeater - Repeat the request we want and can track the response
+[+]
+Sequencer -

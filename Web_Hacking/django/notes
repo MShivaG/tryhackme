@@ -1,0 +1,5 @@
+django-admin startproject [project-name} ==> Create new project
+python3 manage.py migrate ==> auto configure the project
+python3 manage.py runserver ==> start the server
+python3 manage.py createsuperuser
+
