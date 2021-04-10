@@ -1,0 +1,4 @@
+SSRF - Server Side Request Forgery
+Allows the attacker to communicate with the backend services which are protected by the firewalls
+[+] Absence in Sanitization of user input is reason for this vulnerability
+[+] SSRF payloads ==> https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery#file

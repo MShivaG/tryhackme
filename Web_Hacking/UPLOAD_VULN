@@ -1,0 +1,26 @@
+[+]    Overwriting existing files on a server
+[+]    Uploading and Executing Shells on a server
+[+]    Bypassing Client-Side filtering
+[+]    Bypassing various kinds of Server-Side filtering
+[+]    Fooling content type validation checks
+
+Filtering Techniques:
+[+] Server side or Client Side
+[+] Extension Validation
+[+] File Type Filtering
+    [+] MIME (Multipurpose Internet Mail Extension) ==> Content-type in request Format: type/sub-type
+    [+] Magic Number Validation ==> 89 50 4E 47 0D 0A 1A 0A ~ PNG format 
+[+] File Length Filtering
+[+] File name Filtering
+
+
+Tricks to bypass Client Side Filtering
+[+] Turning off JavaScript in the browser
+[+] Intercepting and modifying the incomming page ==> preventing the page to use JavaScript
+[+] Intercept and modify the upload 
+[+] Send the file directly to the server ==> curl -X POST -F "submit:<value>" -F "<file-parameter>:@<path-to-file>" <site>
+[+] PHP ==> https://en.wikipedia.org/wiki/PHP
+[+] Magic Number Validation ==> File Extension https://en.wikipedia.org/wiki/List_of_file_signatures
+
+
+#directory indexing turned off ==> Access the file directly using the URL
